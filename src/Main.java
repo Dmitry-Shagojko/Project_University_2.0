@@ -130,6 +130,5 @@ public class Main {
         methodistServices.conversionClass(teacher8);                //конвертация учителя в методиста
 
 //        teacherServices.addTeacher(new Teacher("Molly", "Dermott", 159, "Female", address20)); // Exception на возраст
-
     }
 }
