@@ -26,11 +26,19 @@ public class TeacherServices {
     }
 
     public void setWage(Teacher teacher, int hour) {
-        teacher.setSalary(hour);
+        if (hour > 0 && hour <= 50) {
+            teacher.salary = hour * 20;
+        } else if (hour > 50 && hour <= 100) {
+            teacher.salary = hour * 20 + 20;
+        } else if (hour > 100) {
+            teacher.salary = hour * 20 + 40;
+        } else if (hour <= 0) {
+            teacher.salary = 0;
+        }
     }
 
     public int getWage(Teacher teacher) {
-        return teacher.getSalary();
+        return teacher.salary;
     }
 
     public void outputListOfRetiretTeachers(TeacherServices teacherServices) {
@@ -48,7 +56,7 @@ public class TeacherServices {
         teacherServices.teacherRepository.teachers.stream()
                 .filter(t -> (teacherServices.getWage(t) > 2_000))
                 .forEach(t -> System.out.println(t.getName() + " " + t.getFamilyName() + ", " + ": salary - " +
-                        t.getSalary() + " USD;"));
+                        teacherServices.getWage(t) + " USD;"));
     }
 
     public void sortingTeacherByFamily(TeacherServices teacherServices) {
