@@ -3,6 +3,8 @@ package services;
 import model.Student;
 import repository.StudentRepository;
 
+import java.util.ArrayList;
+
 public class StudentServices {
 
     public StudentRepository studentRepository;
@@ -13,6 +15,9 @@ public class StudentServices {
 
     public void addStudent(Student student) {
         studentRepository.addStudent(student);
+    }
+    public void addStudentAll(ArrayList<Student> listAllStudents) {
+        studentRepository.addStudentAll(listAllStudents);
     }
 
     public void deleteStudent(Student student) {

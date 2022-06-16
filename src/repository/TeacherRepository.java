@@ -1,6 +1,7 @@
 package repository;
 
 import model.Teacher;
+import util.AgeTeacherUtil;
 
 import java.util.ArrayList;
 
@@ -13,6 +14,10 @@ public class TeacherRepository {
 
     public void addTeacher(Teacher teacher) {
         teachers.add(teacher);
+    }
+
+    public void addTeacherAll (ArrayList<Teacher> listAllTeachers){
+        teachers.addAll(listAllTeachers);
     }
 
     public void deleteTeacher(Teacher teacher) {

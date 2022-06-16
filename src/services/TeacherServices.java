@@ -3,7 +3,9 @@ package services;
 import model.Teacher;
 import repository.TeacherRepository;
 import util.AgeTeacherUtil;
-import util.MaxWageComparator;
+import util.MaxWageComparatorUtil;
+
+import java.util.ArrayList;
 
 public class TeacherServices {
 
@@ -13,9 +15,9 @@ public class TeacherServices {
         this.teacherRepository = new TeacherRepository();
     }
 
-    public void addTeacher(Teacher teacher) {
-        teacherRepository.addTeacher(AgeTeacherUtil.checkAge(teacher));
-    }
+//    public void addTeacher(Teacher teacher) {
+//        teacherRepository.addTeacher(AgeTeacherUtil.checkAge(teacher));
+//    }
 
     public void deleteTeacher(Teacher teacher) {
         teacherRepository.deleteTeacher(teacher);
@@ -24,6 +26,14 @@ public class TeacherServices {
     public void setTeacher(int pos, Teacher teacher) {
         teacherRepository.setTeacher(pos, teacher);
     }
+
+
+
+    public void addTeacherAll(ArrayList<Teacher> listAllTeachers){
+        teacherRepository.addTeacherAll(AgeTeacherUtil.checkAge(listAllTeachers));
+    }
+
+
 
     public void setWage(Teacher teacher, int hour) {
         if (hour > 0 && hour <= 50) {
@@ -69,9 +79,9 @@ public class TeacherServices {
 
     public void sortingTeacherBySumSalary(TeacherServices teacherServices) {
         System.out.println('\n' + "Sorting list of teachers by salary level using Comparator:");
-        MaxWageComparator maxWageComparator = new MaxWageComparator();
+        MaxWageComparatorUtil maxWageComparatorUtil = new MaxWageComparatorUtil();
         teacherServices.teacherRepository.teachers.stream()
-                .sorted(maxWageComparator)
+                .sorted(maxWageComparatorUtil)
                 .forEach(t -> System.out.println(t.getFamilyName() + " " + t.getName() + " ---> " +
                         teacherServices.getWage(t) + " USD;"));
     }

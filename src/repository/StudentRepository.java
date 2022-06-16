@@ -15,6 +15,9 @@ public class StudentRepository {
     public void addStudent(Student student) {
         students.add(student);
     }
+    public void addStudentAll(ArrayList<Student> listAllStudents) {
+        students.addAll(listAllStudents);
+    }
 
     public void deleteStudent(Student student) {
         students.remove(student);
@@ -22,4 +25,5 @@ public class StudentRepository {
     public void setStudent (int pos, Student student){
         students.set(pos, student);
     }
+
 }
