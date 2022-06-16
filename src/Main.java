@@ -16,7 +16,6 @@ public class Main {
         StudentServices listAllStudents = new StudentServices();
         listAllStudents.addStudentAll(ReadingFilesUtil.createStudents("ListStudents.txt"));
 
-
         StudentServices studentServicesGroup1 = new StudentServices();
         studentServicesGroup1.addStudent(listAllStudents.studentRepository.students.get(0));
         studentServicesGroup1.addStudent(listAllStudents.studentRepository.students.get(1));
@@ -75,7 +74,5 @@ public class Main {
 
         MethodistServices methodistServices = new MethodistServices();
         methodistServices.conversionClass(listAllTeachers.teacherRepository.teachers.get(8));   //конвертация учителя в методиста
-
-
     }
 }

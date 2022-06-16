@@ -40,7 +40,7 @@ public abstract class People {
     public void setAge(int age) {
         if (age > 0) {
             this.age = age;
-        } else if (age == 0 || age < 0){
+        } else if (age == 0 || age < 0) {
             System.out.println("Check entered age: " + getClass() + " " + getName() +
                     " " + getFamilyName() + " !!!");
             this.age = 0;

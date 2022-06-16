@@ -1,57 +1,48 @@
 package base.tests;
 
-
-import model.Address;
-import model.Methodist;
-import model.Student;
-import model.Teacher;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import services.StudentServices;
+import services.TeacherServices;
+import util.ReadingFilesUtil;
 
 public class PeopleTest {
-    Student student;
-    Teacher teacher;
-    Methodist methodist;
-    Address address;
+    StudentServices studentServices;
+    TeacherServices teacherServices;
 
     @Before
     public void setUp() throws Exception {
-        address = new Address("Minsk", "Sverdlova str.", 23, 1);
-        student = new Student("Dmitry", "Shagojko", 28, "Male", address);
-        teacher = new Teacher("Alex", "Williams", 45, "Male", address);
-        methodist = new Methodist("Kate", "Window", 34, "Female", address);
+        studentServices = new StudentServices();
+        studentServices.addStudentAll(ReadingFilesUtil.createStudents("ListStudents.txt"));
+        teacherServices = new TeacherServices();
+        teacherServices.addTeacherAll(ReadingFilesUtil.createTeachers("ListTeachers.txt"));
     }
 
     @Test
     public void checkPositiveAge() {
-        student.setAge(29);
-        teacher.setAge(46);
-        methodist.setAge(35);
-        Assert.assertTrue(29 == student.getAge());
-        Assert.assertTrue(46 == teacher.getAge());
-        Assert.assertTrue(35 == methodist.getAge());
-        Assert.assertNotNull(student);
+        studentServices.studentRepository.students.get(0).setAge(29);
+        teacherServices.teacherRepository.teachers.get(0).setAge(46);
+        Assert.assertTrue(29 == studentServices.studentRepository.students.get(0).getAge());
+        Assert.assertTrue(46 == teacherServices.teacherRepository.teachers.get(0).getAge());
+        Assert.assertNotNull(studentServices.studentRepository.students.get(0));
     }
+
     @Test
     public void checkZeroAge() {
-        student.setAge(0);
-        teacher.setAge(0);
-        methodist.setAge(0);
-        Assert.assertTrue(0 == student.getAge());
-        Assert.assertTrue(0 == teacher.getAge());
-        Assert.assertTrue(0 == methodist.getAge());
-        Assert.assertNotNull(student);
+        studentServices.studentRepository.students.get(0).setAge(0);
+        teacherServices.teacherRepository.teachers.get(0).setAge(0);
+        Assert.assertTrue(0 == studentServices.studentRepository.students.get(0).getAge());
+        Assert.assertTrue(0 == teacherServices.teacherRepository.teachers.get(0).getAge());
+        Assert.assertNotNull(studentServices.studentRepository.students.get(0));
     }
 
     @Test
     public void checkNegativeAge() {
-        student.setAge(-29);
-        teacher.setAge(-46);
-        methodist.setAge(-35);
-        Assert.assertTrue(0 == student.getAge());
-        Assert.assertTrue(0 == teacher.getAge());
-        Assert.assertTrue(0 == methodist.getAge());
-        Assert.assertNotNull(student);
+        studentServices.studentRepository.students.get(0).setAge(-29);
+        teacherServices.teacherRepository.teachers.get(0).setAge(-46);
+        Assert.assertTrue(0 == studentServices.studentRepository.students.get(0).getAge());
+        Assert.assertTrue(0 == teacherServices.teacherRepository.teachers.get(0).getAge());
+        Assert.assertNotNull(studentServices.studentRepository.students.get(0));
     }
 }

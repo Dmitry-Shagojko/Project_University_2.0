@@ -16,7 +16,7 @@ public class TeacherRepository {
         teachers.add(teacher);
     }
 
-    public void addTeacherAll (ArrayList<Teacher> listAllTeachers){
+    public void addTeacherAll(ArrayList<Teacher> listAllTeachers) {
         teachers.addAll(listAllTeachers);
     }
 

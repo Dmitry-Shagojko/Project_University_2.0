@@ -16,7 +16,6 @@ public class ReadingFilesUtil {
     public static ArrayList<Teacher> createTeachers(String name) {
         FileReader listTeacher = null;
         ArrayList<Teacher> teachers = new ArrayList<>();
-
         try {
             listTeacher = new FileReader(name);
             int a;
@@ -49,11 +48,9 @@ public class ReadingFilesUtil {
         return teachers;
     }
 
-
     public static ArrayList<Student> createStudents(String name) {
         FileReader listStudent = null;
         ArrayList<Student> students = new ArrayList<>();
-
         try {
             listStudent = new FileReader(name);
             int s;
