@@ -74,5 +74,6 @@ public class Main {
 
         MethodistServices methodistServices = new MethodistServices();
         methodistServices.conversionClass(listAllTeachers.teacherRepository.teachers.get(8));   //конвертация учителя в методиста
+        System.out.println("Test");
     }
 }
